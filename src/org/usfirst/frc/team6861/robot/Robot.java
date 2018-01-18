@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team6861.robot.commands.ExampleCommand;
+import org.usfirst.frc.team6861.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team6861.robot.subsystems.ExampleSubsystem;
 
 /**
@@ -29,7 +30,10 @@ public class Robot extends TimedRobot {
 
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
-
+	public static DriveTrain driveTrain;
+		
+		
+0
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -40,6 +44,8 @@ public class Robot extends TimedRobot {
 		m_chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
+		driveTrain = new DriveTrain();
+		
 	}
 
 	/**
