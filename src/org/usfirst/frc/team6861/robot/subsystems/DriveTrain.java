@@ -1,7 +1,6 @@
 package org.usfirst.frc.team6861.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import org.usfirst.frc.team1.robot.RobotMap;
 
 /**
  *
