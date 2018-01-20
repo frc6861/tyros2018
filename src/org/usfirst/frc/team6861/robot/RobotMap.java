@@ -10,6 +10,9 @@ package org.usfirst.frc.team6861.robot;
 import com.ctre.CANTalon;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.RobotDrive;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -21,6 +24,10 @@ public class RobotMap {
     public static WPI_TalonSRX rightFront;
     public static WPI_TalonSRX leftRear;
     public static WPI_TalonSRX rightRear;
+    public static RobotDrive robotDrive;
+    public static Joystick moveStick;
+    
+    
 	// For example to map the left and right motors, you could define the
 	// following variables to use with your drivetrain subsystem.
 	// public static int leftMotor = 1;
@@ -35,6 +42,9 @@ public class RobotMap {
     	rightFront = new WPI_TalonSRX(2);
     	leftRear = new WPI_TalonSRX(3);
     	rightRear = new WPI_TalonSRX(4);
+    	robotDrive = new RobotDrive(0,1,2,3);
+    	moveStick = new Joystick(1);
+  
     }
 }
 
