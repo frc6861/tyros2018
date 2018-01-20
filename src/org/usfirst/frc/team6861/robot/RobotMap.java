@@ -8,6 +8,7 @@
 package org.usfirst.frc.team6861.robot;
 
 import com.ctre.CANTalon;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -16,10 +17,10 @@ import com.ctre.CANTalon;
  * floating around.
  */
 public class RobotMap {
-	public static CANTalon leftFront;
-    public static CANTalon rightFront;
-    public static CANTalon leftRear;
-    public static CANTalon rightRear;
+	public static WPI_TalonSRX leftFront;
+    public static WPI_TalonSRX rightFront;
+    public static WPI_TalonSRX leftRear;
+    public static WPI_TalonSRX rightRear;
 	// For example to map the left and right motors, you could define the
 	// following variables to use with your drivetrain subsystem.
 	// public static int leftMotor = 1;
@@ -30,10 +31,10 @@ public class RobotMap {
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
     public static void init() {
-    	leftFront = new CANTalon(1);
-    	rightFront = new CANTalon(2);
-    	leftRear = new CANTalon(3);
-    	rightRear = new CANTalon(4);
+    	leftFront = new WPI_TalonSRX(1);
+    	rightFront = new WPI_TalonSRX(2);
+    	leftRear = new WPI_TalonSRX(3);
+    	rightRear = new WPI_TalonSRX(4);
     }
 }
 
