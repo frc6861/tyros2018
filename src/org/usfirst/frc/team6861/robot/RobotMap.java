@@ -25,7 +25,7 @@ public class RobotMap {
     public static WPI_TalonSRX leftRear;
     public static WPI_TalonSRX rightRear;
     public static RobotDrive robotDrive;
-    public static Joystick moveStick;
+   
     
     
 	// For example to map the left and right motors, you could define the
@@ -39,11 +39,11 @@ public class RobotMap {
 	// public static int rangefinderModule = 1;
     public static void init() {
     	leftFront = new WPI_TalonSRX(1);
-    	rightFront = new WPI_TalonSRX(2);
-    	leftRear = new WPI_TalonSRX(3);
+    	rightFront = new WPI_TalonSRX(3);
+    	leftRear = new WPI_TalonSRX(2);
     	rightRear = new WPI_TalonSRX(4);
-    	robotDrive = new RobotDrive(0,1,2,3);
-    	moveStick = new Joystick(1);
+    	robotDrive = new RobotDrive(leftFront,leftRear,rightFront,rightRear);
+    	
   
     }
 }
