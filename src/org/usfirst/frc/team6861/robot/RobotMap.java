@@ -16,10 +16,10 @@ import com.ctre.CANTalon;
  * floating around.
  */
 public class RobotMap {
-	public static CANTalon driveTrainLeftFront;
-    public static CANTalon driveTrainRightFront;
-    public static CANTalon driveTrainLeftRear;
-    public static CANTalon driveTrainRightRear;
+	public static CANTalon leftFront;
+    public static CANTalon rightFront;
+    public static CANTalon leftRear;
+    public static CANTalon rightRear;
 	// For example to map the left and right motors, you could define the
 	// following variables to use with your drivetrain subsystem.
 	// public static int leftMotor = 1;
@@ -29,5 +29,13 @@ public class RobotMap {
 	// number and the module. For example you with a rangefinder:
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
+    public static void init() {
+    	leftFront = new CANTalon(1);
+    	rightFront = new CANTalon(2);
+    	leftRear = new CANTalon(3);
+    	rightRear = new CANTalon(4);
+    }
 }
 
+
+	
