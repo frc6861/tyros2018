@@ -13,9 +13,6 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class Drive extends Command {
-	RobotDrive robotDrive;
-
-
     public Drive() {
         //Use requires() here to declare subsystem dependencies
         requires(Robot.driveTrain);
@@ -27,7 +24,8 @@ public class Drive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	DriveTrain.robotDrive.arcadeDrive(OI.stick);
+    	//RobotMap.mecanumDrive.driveCartesian(Robot.m_oi.stick.getX(), Robot.m_oi.stick.getY(), Robot.m_oi.stick.getZ(), 0);
+    	Robot.driveTrain.setMecanumDriveCommand(Robot.m_oi.stick.getX(), Robot.m_oi.stick.getY(), Robot.m_oi.stick.getZ(), 0);
     }
 
     // Make this return true when this Command no longer needs to run execute()

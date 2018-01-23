@@ -12,6 +12,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.drive.MecanumDrive;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -19,30 +20,21 @@ import edu.wpi.first.wpilibj.RobotDrive;
  * the wiring easier and significantly reduces the number of magic numbers
  * floating around.
  */
-public class RobotMap {
+public class RobotMap{
 	public static WPI_TalonSRX leftFront;
     public static WPI_TalonSRX rightFront;
     public static WPI_TalonSRX leftRear;
     public static WPI_TalonSRX rightRear;
     public static RobotDrive robotDrive;
-   
-    
-    
-	// For example to map the left and right motors, you could define the
-	// following variables to use with your drivetrain subsystem.
-	// public static int leftMotor = 1;
-	// public static int rightMotor = 2;
+    public static MecanumDrive mecanumDrive;
 
-	// If you are using multiple modules, make sure to define both the port
-	// number and the module. For example you with a rangefinder:
-	// public static int rangefinderPort = 1;
-	// public static int rangefinderModule = 1;
+
     public static void init() {
     	leftFront = new WPI_TalonSRX(1);
     	rightFront = new WPI_TalonSRX(3);
     	leftRear = new WPI_TalonSRX(2);
     	rightRear = new WPI_TalonSRX(4);
-    	robotDrive = new RobotDrive(leftFront,leftRear,rightFront,rightRear);
+    	mecanumDrive = new MecanumDrive(leftFront,leftRear,rightFront,rightRear);
     	
   
     }

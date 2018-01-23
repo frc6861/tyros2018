@@ -1,12 +1,14 @@
 package org.usfirst.frc.team6861.robot.subsystems;
 
 
+import org.usfirst.frc.team6861.robot.Robot;
 import org.usfirst.frc.team6861.robot.RobotMap;
 import org.usfirst.frc.team6861.robot.commands.Drive;
 
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.drive.MecanumDrive;
 //test
 /**
  *
@@ -28,13 +30,8 @@ public class DriveTrain extends Subsystem {
         // Set the default command for a subsystem here.
         setDefaultCommand(new Drive());
     }
-    public void setArcadeDriveCommand(double speed, double turn)
+    public void setMecanumDriveCommand(double xSpeed, double ySpeed, double zRotation, double gyroAngle)
     {
-    	 RobotMap.robotDrive.arcadeDrive(speed, turn);
-    }
-    public void setTankDriveCommand(double right, double left)
-    {
-    	RobotMap.robotDrive.tankDrive(left, right);
+    	RobotMap.mecanumDrive.driveCartesian(ySpeed, xSpeed, zRotation, gyroAngle);
     }
 }
-
