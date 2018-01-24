@@ -6,6 +6,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.drive.MecanumDrive;
 
 /**
  *
@@ -17,7 +18,7 @@ public class DriveTrain extends Subsystem {
     public WPI_TalonSRX rightFront;
     public WPI_TalonSRX leftRear;
     public WPI_TalonSRX rightRear;
-    RobotDrive roboDrive;
+    MecanumDrive roboDrive;
     
     
     // Put methods for controlling this subsystem
@@ -28,11 +29,16 @@ public class DriveTrain extends Subsystem {
     	rightFront = new WPI_TalonSRX(2);
     	leftRear = new WPI_TalonSRX(3);
     	rightRear = new WPI_TalonSRX(4);
-    	roboDrive = new RobotDrive(leftFront,leftRear,rightFront,rightRear);
+    	roboDrive = new MecanumDrive(leftFront,leftRear,rightFront,rightRear);
     }
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        //setDefaultCommand(new DriveWithJoystick());
+        setDefaultCommand(new DriveWithJoystick());
     }
+    public void setMecanumDriveCommand(double xSpeed, double ySpeed, double zRotation, double gyroAngle)
+    {
+    	roboDrive.driveCartesian(ySpeed, xSpeed, zRotation, gyroAngle);
+    }
+
 }
 
