@@ -22,12 +22,11 @@ import org.usfirst.frc.team6861.robot.subsystems.DriveTrain;
  * project.
  */
 public class Robot extends TimedRobot {
-	public static OI m_oi;
+	public  OI m_oi;
+	public  DriveTrain driveTrain;
 
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
-	public static DriveTrain driveTrain;
-	public static RobotMap robotMap;
 		
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -35,12 +34,9 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
-		robotMap = new RobotMap();
-		robotMap.init();
 		m_oi = new OI();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
-		driveTrain = new DriveTrain();
 		
 	}
 
@@ -53,6 +49,8 @@ public class Robot extends TimedRobot {
 	public void disabledInit() {
 
 	}
+	
+
 
 	@Override
 	public void disabledPeriodic() {
@@ -114,4 +112,21 @@ public class Robot extends TimedRobot {
 	@Override
 	public void testPeriodic() {
 	}
+
+	public DriveTrain getDriveTrain() {
+		return driveTrain;
+	}
+
+	public void setDriveTrain(DriveTrain driveTrain) {
+		this.driveTrain = driveTrain;
+	}
+
+	public OI getM_oi() {
+		return m_oi;
+	}
+
+	public void setM_oi(OI m_oi) {
+		this.m_oi = m_oi;
+	}
+	
 }
