@@ -24,7 +24,7 @@ public class DriveStraightAuton extends TimedCommand {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	driveTrain.setMecanumDriveCommand(1, 1, 0, 0);
+    	driveTrain.setMecanumDriveCommand(1, 1, 1, 0);
     }
 
     // Called once after timeout
