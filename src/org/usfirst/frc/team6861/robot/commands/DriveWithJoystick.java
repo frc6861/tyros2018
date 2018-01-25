@@ -1,12 +1,10 @@
 package org.usfirst.frc.team6861.robot.commands;
 
-import org.usfirst.frc.team6861.robot.OI;
 import org.usfirst.frc.team6861.robot.Robot;
 import org.usfirst.frc.team6861.robot.subsystems.DriveTrain;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.drive.MecanumDrive;
 
 /**
  *
