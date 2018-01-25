@@ -7,12 +7,14 @@
 
 package org.usfirst.frc.team6861.robot;
 
+import org.usfirst.frc.team6861.robot.commands.DriveStraightAuton;
+import org.usfirst.frc.team6861.robot.subsystems.DriveTrain;
+
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.usfirst.frc.team6861.robot.subsystems.DriveTrain;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -22,8 +24,8 @@ import org.usfirst.frc.team6861.robot.subsystems.DriveTrain;
  * project.
  */
 public class Robot extends TimedRobot {
-	public  OI m_oi;
-	public  DriveTrain driveTrain;
+	private  OI m_oi;
+	private  DriveTrain driveTrain;
 
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -35,8 +37,12 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotInit() {
 		m_oi = new OI();
+		driveTrain=new DriveTrain(m_oi);
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
+		m_chooser = new SendableChooser();
+		m_chooser.addDefault("DriveStraightAuton", new DriveStraightAuton(1,driveTrain));
+		SmartDashboard.putData("Autonomous mode chooser", m_chooser);
 		
 	}
 

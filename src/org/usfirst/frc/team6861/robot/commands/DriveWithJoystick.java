@@ -1,6 +1,5 @@
 package org.usfirst.frc.team6861.robot.commands;
 
-import org.usfirst.frc.team6861.robot.Robot;
 import org.usfirst.frc.team6861.robot.subsystems.DriveTrain;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -10,23 +9,22 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class DriveWithJoyStick extends Command {
-	Robot robot=new Robot();
-	
-	DriveTrain driveTrain=robot.getDriveTrain();
-	Joystick joyStick=robot.getM_oi().getStick();
-    public DriveWithJoyStick() {
+	private DriveTrain driveTrain;
+	private Joystick stick;
+    public DriveWithJoyStick(DriveTrain driveTrain,Joystick stick) {
         //Use requires() here to declare subsystem dependencies
+    	this.driveTrain=driveTrain;
+    	this.stick=stick;
         requires(driveTrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	driveTrain.setMecanumDriveCommand(joyStick.getX(), joyStick.getY(), joyStick.getZ(), 0);
+    	driveTrain.setMecanumDriveCommand(stick.getX(), stick.getY(), stick.getZ(), 0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
