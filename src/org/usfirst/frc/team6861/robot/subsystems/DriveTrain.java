@@ -31,6 +31,16 @@ public class DriveTrain extends Subsystem {
     	rightRear = new WPI_TalonSRX(4);
     	mecanumDrive = new MecanumDrive(leftFront,leftRear,rightFront,rightRear);
     	joystick=m_oi.getStick();
+    	motorSetup();
+    	
+    }
+    public void motorSetup() {
+    	leftFront.setInverted(true);
+    	rightRear.setInverted(true);
+    	leftFront.setExpiration(0.5);
+    	rightFront.setExpiration(0.5);
+    	leftRear.setExpiration(0.5);
+    	rightRear.setExpiration(0.5);
     }
 
     public void initDefaultCommand() {
