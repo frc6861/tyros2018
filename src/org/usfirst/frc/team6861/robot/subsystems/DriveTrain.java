@@ -9,6 +9,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //test
 /**
  *
@@ -21,7 +22,6 @@ public class DriveTrain extends Subsystem {
     private  WPI_TalonSRX rightRear;
     private  MecanumDrive mecanumDrive;
 	private Joystick joystick;
-
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     public DriveTrain(OI m_oi) {
@@ -46,8 +46,11 @@ public class DriveTrain extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         setDefaultCommand(new DriveWithJoyStick(this,joystick));
-    }
+           }
     public void setMecanumDriveCommand(double xSpeed, double ySpeed, double zRotation, double gyroAngle){
     	mecanumDrive.driveCartesian(ySpeed, xSpeed, zRotation, gyroAngle);
+    	SmartDashboard.putNumber("Joystick X value", joystick.getX());
+    	SmartDashboard.putNumber("Joystick Y value", joystick.getY());
+    	SmartDashboard.putNumber("Joystick Z value", joystick.getZ());
     }
 }
