@@ -7,7 +7,7 @@
 
 package org.usfirst.frc.team6861.robot;
 
-import org.usfirst.frc.team6861.robot.commands.DriveStraightAuton;
+import org.usfirst.frc.team6861.robot.commands.MoveToSwitchAuton;
 import org.usfirst.frc.team6861.robot.subsystems.DriveTrain;
 
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -41,7 +41,7 @@ public class Robot extends TimedRobot {
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 		m_chooser = new SendableChooser();
-		m_chooser.addDefault("DriveStraightAuton", new DriveStraightAuton(1,driveTrain));
+		m_chooser.addDefault("DriveStraightAuton", new MoveToSwitchAuton(2,driveTrain));
 		SmartDashboard.putData("Autonomous mode chooser", m_chooser);
 		
 	}

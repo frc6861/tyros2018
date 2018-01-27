@@ -8,11 +8,11 @@ import edu.wpi.first.wpilibj.command.TimedCommand;
 /**
  *
  */
-public class DriveStraightAuton extends TimedCommand {
+public class MoveToSwitchAuton extends TimedCommand {
 
     private DriveTrain driveTrain;
 
-	public DriveStraightAuton(double timeout,DriveTrain driveTrain) {
+	public MoveToSwitchAuton(double timeout,DriveTrain driveTrain) {
         super(timeout);
         // Use requires() here to declare subsystem dependencies
         this.driveTrain=driveTrain;
@@ -30,10 +30,10 @@ public class DriveStraightAuton extends TimedCommand {
     	gameData = DriverStation.getInstance().getGameSpecificMessage();
     	if (gameData.charAt(0) == 'L')
     	{
-    		driveTrain.setMecanumDriveCommand(-.25, 0.5, 0, 0);
+    		driveTrain.setMecanumDriveCommand(-0.5, 0.57, 0, 0);
     	}
     	else {
-    		driveTrain.setMecanumDriveCommand(0.25, 0.5, 0, 0);
+    		driveTrain.setMecanumDriveCommand(0.47, 0.55, 0, 0);
     	}
     	//need to work
     }
