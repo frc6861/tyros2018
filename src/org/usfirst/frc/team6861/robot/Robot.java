@@ -10,6 +10,7 @@ package org.usfirst.frc.team6861.robot;
 import org.usfirst.frc.team6861.robot.commands.MoveToSwitchAuton;
 import org.usfirst.frc.team6861.robot.subsystems.DriveTrain;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -26,6 +27,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends TimedRobot {
 	private  OI m_oi;
 	private  DriveTrain driveTrain;
+	public static CameraServer camera;
 
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -43,6 +45,7 @@ public class Robot extends TimedRobot {
 		m_chooser = new SendableChooser();
 		m_chooser.addDefault("DriveStraightAuton", new MoveToSwitchAuton(2,driveTrain));
 		SmartDashboard.putData("Autonomous mode chooser", m_chooser);
+		CameraServer.getInstance().startAutomaticCapture();
 		
 	}
 
