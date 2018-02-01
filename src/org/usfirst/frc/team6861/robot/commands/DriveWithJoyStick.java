@@ -27,7 +27,7 @@ public class DriveWithJoyStick extends Command {
     	driveTrain.setMecanumDriveCommand(stick.getX(), -stick.getY(), stick.getZ(), 0);
     }
 
-    // Make this return true when this Command no longer needs to run execute()
+    //  Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return false;
     }
