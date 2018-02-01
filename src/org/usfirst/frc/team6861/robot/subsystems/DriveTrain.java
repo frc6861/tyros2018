@@ -35,8 +35,8 @@ public class DriveTrain extends Subsystem {
     	
     }
     public void motorSetup() {
-    	leftFront.setInverted(true);
-    	rightRear.setInverted(true);
+    	leftFront.setInverted(false);
+    	rightRear.setInverted(false);
     	leftFront.setExpiration(0.5);
     	rightFront.setExpiration(0.5);
     	leftRear.setExpiration(0.5);
@@ -47,8 +47,8 @@ public class DriveTrain extends Subsystem {
         // Set the default command for a subsystem here.
         setDefaultCommand(new DriveWithJoyStick(this,joystick));
            }
-    public void setMecanumDriveCommand(double xSpeed, double ySpeed, double zRotation, double gyroAngle){
-    	mecanumDrive.driveCartesian(ySpeed, xSpeed, zRotation, gyroAngle);
+    public void setMecanumDriveCommand(double ySpeed, double xSpeed, double zRotation, double gyroAngle){
+    	mecanumDrive.driveCartesian(ySpeed, xSpeed, zRotation);
     	SmartDashboard.putNumber("Joystick X value", joystick.getX());
     	SmartDashboard.putNumber("Joystick Y value", joystick.getY());
     	SmartDashboard.putNumber("Joystick Z value", joystick.getZ());
