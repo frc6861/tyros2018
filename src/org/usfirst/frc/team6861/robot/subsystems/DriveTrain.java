@@ -35,8 +35,6 @@ public class DriveTrain extends Subsystem {
     	
     }
     public void motorSetup() {
-    	leftFront.setInverted(false);
-    	rightRear.setInverted(false);
     	leftFront.setExpiration(0.5);
     	rightFront.setExpiration(0.5);
     	leftRear.setExpiration(0.5);
