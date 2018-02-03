@@ -1,8 +1,10 @@
 package org.usfirst.frc.team6861.robot.commands;
 
+import org.usfirst.frc.team6861.robot.Robot;
 import org.usfirst.frc.team6861.robot.subsystems.DriveTrain;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.PWMSpeedController;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -11,10 +13,12 @@ import edu.wpi.first.wpilibj.command.Command;
 public class DriveWithJoyStick extends Command {
 	private DriveTrain driveTrain;
 	private Joystick stick;
+	//private PWMSpeedController spark1;
     public DriveWithJoyStick(DriveTrain driveTrain,Joystick stick) {
         //Use requires() here to declare subsystem dependencies
     	this.driveTrain=driveTrain;
     	this.stick=stick;
+    	//this.spark1 = spark1;
         requires(driveTrain);
     }
 
@@ -24,6 +28,7 @@ public class DriveWithJoyStick extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	//spark1.set(1.0);
     	driveTrain.setMecanumDriveCommand(stick.getX(), -stick.getY(), stick.getZ(), 0);
     }
 
