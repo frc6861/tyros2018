@@ -14,9 +14,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class DriveWithJoyStick extends Command {
 	private DriveTrain driveTrain;
 	private Joystick stick;
-	//private Spark spark1;
     public DriveWithJoyStick(DriveTrain driveTrain,Joystick stick) {
-        //Use requires() here to declare subsystem dependencies
     this.driveTrain=driveTrain;
     this.stick=stick;
     requires(driveTrain);
@@ -31,7 +29,6 @@ public class DriveWithJoyStick extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	driveTrain.driveSpark();
     	driveTrain.setMecanumDriveCommand(stick.getX(), -stick.getY(), stick.getZ(), 0);
     }
 

@@ -1,15 +1,27 @@
 package org.usfirst.frc.team6861.robot.commands;
 
+import org.usfirst.frc.team6861.robot.OI;
+import org.usfirst.frc.team6861.robot.subsystems.Ramp;
+
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class PickUpCube extends Command {
-
-    public PickUpCube() {
+public class ChangeRampDirection extends Command {
+	WPI_TalonSRX spark;
+	Ramp ramp;
+	OI oi;
+    public ChangeRampDirection(OI oi,Ramp ramp) {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        requires(ramp);
+        this.ramp=ramp;
+        this.oi=oi;
     }
 
     // Called just before this Command runs the first time
@@ -18,6 +30,11 @@ public class PickUpCube extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	if(oi.isReverseMotor()) 
+    		ramp.driveSpark(-1);
+    	else
+    		ramp.driveSpark(1);
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()

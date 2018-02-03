@@ -1,13 +1,14 @@
 package org.usfirst.frc.team6861.robot.commands;
 
+import org.usfirst.frc.team6861.robot.OI;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class ExpelCube extends Command {
-
-    public ExpelCube() {
+public class ToggleMotorDirection extends Command {
+    public ToggleMotorDirection() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -18,6 +19,8 @@ public class ExpelCube extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	
+    	OI.reverseMotor=!OI.reverseMotor;
     }
 
     // Make this return true when this Command no longer needs to run execute()

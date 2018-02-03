@@ -4,13 +4,15 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-
+	
 package org.usfirst.frc.team6861.robot;
+
+import org.usfirst.frc.team6861.robot.commands.ToggleMotorDirection;
 
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.PWMSpeedController;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -23,6 +25,8 @@ public class OI {
 	private AnalogInput ai1;
 	private AnalogInput ai2;
 	private AnalogInput ai3;
+	private JoystickButton button1;
+	public static boolean reverseMotor=false;
 	// private PWMSpeedController spark1;
 	
 	
@@ -34,18 +38,31 @@ public class OI {
 	//	this.spark1 = spark1;
 	//}
 
+	public JoystickButton getButton1() {
+		return button1;
+	}
+
+	public void setButton1(JoystickButton button1) {
+		this.button1 = button1;
+	}
+
 	public OI() {
 		 stick = new Joystick(0);
-		 ai0 = new AnalogInput(0);
-		 ai1 = new AnalogInput(1);
-		 ai2 = new AnalogInput(2);
-		 ai3 = new AnalogInput(3);
+		 button1=new JoystickButton(stick,7);
+		 button1.whenPressed(new ToggleMotorDirection());
 		 CameraServer.getInstance().startAutomaticCapture();
-		 
 	}
 
 	public AnalogInput getAi1() {
 		return ai1;
+	}
+
+	public boolean isReverseMotor() {
+		return reverseMotor;
+	}
+
+	public void setReverseMotor(boolean reverseMotor) {
+		this.reverseMotor = reverseMotor;
 	}
 
 	public void setAi1(AnalogInput ai1) {
