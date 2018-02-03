@@ -7,13 +7,10 @@
 
 package org.usfirst.frc.team6861.robot;
 
-import org.usfirst.frc.team6861.robot.commands.ChangeRampDirection;
 import org.usfirst.frc.team6861.robot.commands.MoveToSwitchAuton;
 import org.usfirst.frc.team6861.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team6861.robot.subsystems.Ramp;
 
-import edu.wpi.first.wpilibj.AnalogInput;
-import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -112,6 +109,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopInit() {
 		Scheduler.getInstance().removeAll();
+		
 		
 	}
 

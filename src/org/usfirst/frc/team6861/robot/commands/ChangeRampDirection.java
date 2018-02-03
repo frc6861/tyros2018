@@ -14,14 +14,11 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class ChangeRampDirection extends Command {
-	WPI_TalonSRX spark;
 	Ramp ramp;
-	OI oi;
-    public ChangeRampDirection(OI oi,Ramp ramp) {
+    public ChangeRampDirection(Ramp ramp) {
         // Use requires() here to declare subsystem dependencies
         requires(ramp);
         this.ramp=ramp;
-        this.oi=oi;
     }
 
     // Called just before this Command runs the first time
@@ -30,10 +27,7 @@ public class ChangeRampDirection extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(oi.isReverseMotor()) 
-    		ramp.driveSpark(-1);
-    	else
-    		ramp.driveSpark(1);
+    		ramp.driveSpark();
     	
     }
 

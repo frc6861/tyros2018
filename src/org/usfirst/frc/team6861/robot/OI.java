@@ -25,7 +25,8 @@ public class OI {
 	private AnalogInput ai1;
 	private AnalogInput ai2;
 	private AnalogInput ai3;
-	private JoystickButton button1;
+	private JoystickButton button7;
+	private JoystickButton button9;
 	public static boolean reverseMotor=false;
 	// private PWMSpeedController spark1;
 	
@@ -39,17 +40,19 @@ public class OI {
 	//}
 
 	public JoystickButton getButton1() {
-		return button1;
+		return button7;
 	}
 
 	public void setButton1(JoystickButton button1) {
-		this.button1 = button1;
+		this.button7 = button1;
 	}
 
 	public OI() {
 		 stick = new Joystick(0);
-		 button1=new JoystickButton(stick,7);
-		 button1.whenPressed(new ToggleMotorDirection());
+		 button7=new JoystickButton(stick,7);
+		 button9=new JoystickButton(stick,9);
+		 button7.whenPressed(new ToggleMotorDirection(reverseMotor));
+		 button9.whenPressed(new ToggleMotorDirection(reverseMotor));
 		 CameraServer.getInstance().startAutomaticCapture();
 	}
 

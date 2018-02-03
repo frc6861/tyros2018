@@ -3,9 +3,6 @@ package org.usfirst.frc.team6861.robot.subsystems;
 import org.usfirst.frc.team6861.robot.OI;
 import org.usfirst.frc.team6861.robot.commands.ChangeRampDirection;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -25,10 +22,13 @@ public class Ramp extends Subsystem {
 	}
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-    	setDefaultCommand(new ChangeRampDirection(oi,this));
+    	setDefaultCommand(new ChangeRampDirection(this));
     }
-   public void  driveSpark(double s) {
-	   spark.set(s);
+   public void  driveSpark() {
+	   if(oi.isReverseMotor())
+		   spark.set(-1);
+	   else
+		   spark.set(1);
 	
 	   
    }
