@@ -23,7 +23,7 @@ public class OI {
 	private AnalogInput ai1;
 	private AnalogInput ai2;
 	private AnalogInput ai3;
-	//private PWMSpeedController spark1;
+	// private PWMSpeedController spark1;
 	
 	
 	//public PWMSpeedController getSpark1() {

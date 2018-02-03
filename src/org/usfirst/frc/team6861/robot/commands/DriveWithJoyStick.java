@@ -18,7 +18,7 @@ public class DriveWithJoyStick extends Command {
         //Use requires() here to declare subsystem dependencies
     	this.driveTrain=driveTrain;
     	this.stick=stick;
-    	//this.spark1 = spark1;
+    	// this.spark1 = spark1;
         requires(driveTrain);
     }
 
