@@ -51,8 +51,10 @@ public class OI {
 		 stick = new Joystick(0);
 		 button7=new JoystickButton(stick,7);
 		 button9=new JoystickButton(stick,9);
+		 System.out.println("**************************7"+ reverseMotor);
 		 button7.whenPressed(new ToggleMotorDirection(reverseMotor));
-		 button9.whenPressed(new ToggleMotorDirection(reverseMotor));
+		 System.out.println("**************************9"+ reverseMotor);
+		 button9.whenPressed(new ToggleMotorDirection(!reverseMotor));
 		 CameraServer.getInstance().startAutomaticCapture();
 	}
 
